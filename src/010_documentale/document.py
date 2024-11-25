@@ -33,3 +33,12 @@ class Documento:
     def colore(self) -> Colori:
         if self.firmato and self.stato == StatoDocumento.IN_LAVORAZIONE:
             return Colori.ROSSO
+
+        if (
+            self.tipo == TipoDocumento.DISEGNO_TECNICO
+            and self.stato == StatoDocumento.IN_LAVORAZIONE
+        ):
+            return Colori.BLU
+
+        if self.tipo == TipoDocumento.DISTINTA_MATERIALI:
+            return Colori.GIALLO
